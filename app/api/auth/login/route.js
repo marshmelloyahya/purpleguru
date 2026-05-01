@@ -1,17 +1,16 @@
 import { getDb } from '@/lib/db';
-import { createSessionsTable, loginUser } from '@/lib/auth';
+import { loginUser } from '@/lib/auth';
 import { cookies } from 'next/headers';
 
 export async function POST(req) {
   try {
-    createSessionsTable();
     const { email, password } = await req.json();
     if (!email || !password) return Response.json({ error: 'Email and password required' }, { status: 400 });
 
     const { user, token } = await loginUser({ email, password });
     const cookieStore = await cookies();
     cookieStore.set('session_token', token, {
-      httpOnly: true, secure: false, sameSite: 'lax',
+      httpOnly: true, secure: true, sameSite: 'lax',
       maxAge: 30 * 24 * 60 * 60, path: '/',
     });
 
