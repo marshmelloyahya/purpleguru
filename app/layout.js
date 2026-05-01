@@ -12,8 +12,8 @@ export async function generateMetadata() {
 
   try {
     const db = getDb();
-    const rows = db.prepare("SELECT key, value FROM settings WHERE key IN ('site_name', 'site_tagline', 'seo_description', 'seo_keywords')").all();
-    const settings = rows.reduce((acc, row) => ({ ...acc, [row.key]: row.value }), {});
+    const res = await db.execute("SELECT key, value FROM settings WHERE key IN ('site_name', 'site_tagline', 'seo_description', 'seo_keywords')");
+    const settings = res.rows.reduce((acc, row) => ({ ...acc, [row.key]: row.value }), {});
     
     if (settings.site_name) siteName = settings.site_name;
     if (settings.site_tagline) tagline = settings.site_tagline;
@@ -34,8 +34,8 @@ export default async function RootLayout({ children }) {
   let settings = {};
   try {
     const db = getDb();
-    const rows = db.prepare("SELECT key, value FROM settings").all();
-    settings = rows.reduce((acc, row) => ({ ...acc, [row.key]: row.value }), {});
+    const res = await db.execute('SELECT key, value FROM settings');
+    settings = res.rows.reduce((acc, row) => ({ ...acc, [row.key]: row.value }), {});
   } catch (err) {}
 
   return (

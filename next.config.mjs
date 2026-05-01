@@ -5,7 +5,6 @@ const nextConfig = {
       { protocol: 'https', hostname: '**' },
     ],
   },
-  serverExternalPackages: ['better-sqlite3', 'bcryptjs'],
 };
 
 export default nextConfig;
