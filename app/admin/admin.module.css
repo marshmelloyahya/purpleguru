@@ -1,0 +1,33 @@
+.shell { display: flex; height: 100vh; overflow: hidden; }
+
+.sidebar { width: 260px; min-width: 260px; background: var(--bg-secondary); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 24px 16px; gap: 4px; }
+.sidebarLogo { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; gap: 10px; padding: 0 8px 20px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+.nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.navItem { display: flex; align-items: center; gap: 8px; padding: 11px 12px; border-radius: var(--radius-md); font-size: 14px; color: var(--text-secondary); background: none; border: none; cursor: pointer; text-align: left; transition: var(--transition); text-decoration: none; width: 100%; }
+.navItem:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+.navActive { background: rgba(108,99,255,0.15) !important; color: var(--accent-primary) !important; font-weight: 600; }
+
+.main { flex: 1; overflow-y: auto; display: flex; flex-direction: column; }
+.header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--bg-secondary); position: sticky; top: 0; z-index: 10; }
+.pageTitle { font-size: 22px; font-weight: 700; }
+
+.loading { display: flex; align-items: center; gap: 12px; padding: 40px; color: var(--text-secondary); }
+.content { padding: 28px 32px; flex: 1; }
+
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
+.statCard { padding: 20px; text-align: center; }
+.statIcon { font-size: 24px; margin-bottom: 8px; }
+.statVal { font-size: 2rem; font-weight: 800; font-family: 'Outfit', sans-serif; }
+.statLabel { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+
+.tables { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+.tableTitle { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+
+.addKeyForm { padding: 24px; margin-bottom: 4px; }
+.addKeyForm h3 { font-size: 16px; font-weight: 600; }
+
+.miniSelect { background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-primary); padding: 5px 8px; border-radius: var(--radius-sm); font-size: 12px; cursor: pointer; outline: none; }
+
+.comingSoon { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; text-align: center; gap: 12px; padding: 48px; }
+.comingSoon h2 { font-size: 24px; font-weight: 700; }
+.comingSoon p { color: var(--text-secondary); max-width: 480px; line-height: 1.6; }
